@@ -52,6 +52,7 @@
             this.radioButtonAddition = new System.Windows.Forms.RadioButton();
             this.buttonResult = new System.Windows.Forms.Button();
             this.labelValid = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).BeginInit();
@@ -64,35 +65,52 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 249);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 249);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(303, 230);
+            this.dataGridView1.Size = new System.Drawing.Size(401, 334);
             this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeColumns = false;
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(350, 249);
+            this.dataGridView2.Location = new System.Drawing.Point(454, 249);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(308, 230);
+            this.dataGridView2.Size = new System.Drawing.Size(401, 334);
             this.dataGridView2.TabIndex = 1;
             // 
             // dataGridViewResult
             // 
+            this.dataGridViewResult.AllowUserToAddRows = false;
+            this.dataGridViewResult.AllowUserToDeleteRows = false;
+            this.dataGridViewResult.AllowUserToResizeColumns = false;
+            this.dataGridViewResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridViewResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewResult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewResult.Location = new System.Drawing.Point(687, 249);
+            this.dataGridViewResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.dataGridViewResult.Location = new System.Drawing.Point(882, 249);
             this.dataGridViewResult.Name = "dataGridViewResult";
-            this.dataGridViewResult.Size = new System.Drawing.Size(282, 230);
+            this.dataGridViewResult.Size = new System.Drawing.Size(401, 334);
             this.dataGridViewResult.TabIndex = 2;
             // 
             // textBoxColumn1
             // 
             this.textBoxColumn1.Location = new System.Drawing.Point(115, 19);
+            this.textBoxColumn1.MaxLength = 2;
             this.textBoxColumn1.Name = "textBoxColumn1";
             this.textBoxColumn1.Size = new System.Drawing.Size(100, 20);
             this.textBoxColumn1.TabIndex = 3;
@@ -100,7 +118,7 @@
             // textBoxRows1
             // 
             this.textBoxRows1.Location = new System.Drawing.Point(115, 58);
-            this.textBoxRows1.MaxLength = 4;
+            this.textBoxRows1.MaxLength = 2;
             this.textBoxRows1.Name = "textBoxRows1";
             this.textBoxRows1.Size = new System.Drawing.Size(100, 20);
             this.textBoxRows1.TabIndex = 4;
@@ -144,6 +162,7 @@
             // textBoxRows2
             // 
             this.textBoxRows2.Location = new System.Drawing.Point(120, 61);
+            this.textBoxRows2.MaxLength = 2;
             this.textBoxRows2.Name = "textBoxRows2";
             this.textBoxRows2.Size = new System.Drawing.Size(100, 20);
             this.textBoxRows2.TabIndex = 9;
@@ -151,6 +170,7 @@
             // textBoxColumn2
             // 
             this.textBoxColumn2.Location = new System.Drawing.Point(120, 23);
+            this.textBoxColumn2.MaxLength = 2;
             this.textBoxColumn2.Name = "textBoxColumn2";
             this.textBoxColumn2.Size = new System.Drawing.Size(100, 20);
             this.textBoxColumn2.TabIndex = 8;
@@ -164,7 +184,7 @@
             this.groupBoxMatrix1.Controls.Add(this.label1Rows);
             this.groupBoxMatrix1.Location = new System.Drawing.Point(22, 65);
             this.groupBoxMatrix1.Name = "groupBoxMatrix1";
-            this.groupBoxMatrix1.Size = new System.Drawing.Size(303, 156);
+            this.groupBoxMatrix1.Size = new System.Drawing.Size(402, 156);
             this.groupBoxMatrix1.TabIndex = 13;
             this.groupBoxMatrix1.TabStop = false;
             this.groupBoxMatrix1.Text = "Матрица1";
@@ -186,9 +206,9 @@
             this.groupBoxMatrix2.Controls.Add(this.textBoxRows2);
             this.groupBoxMatrix2.Controls.Add(this.label2Rows);
             this.groupBoxMatrix2.Controls.Add(this.label2Column);
-            this.groupBoxMatrix2.Location = new System.Drawing.Point(350, 65);
+            this.groupBoxMatrix2.Location = new System.Drawing.Point(454, 65);
             this.groupBoxMatrix2.Name = "groupBoxMatrix2";
-            this.groupBoxMatrix2.Size = new System.Drawing.Size(308, 156);
+            this.groupBoxMatrix2.Size = new System.Drawing.Size(401, 156);
             this.groupBoxMatrix2.TabIndex = 14;
             this.groupBoxMatrix2.TabStop = false;
             this.groupBoxMatrix2.Text = "Матрица2";
@@ -211,9 +231,9 @@
             this.groupBoxAction.Controls.Add(this.radioButtonMultiply);
             this.groupBoxAction.Controls.Add(this.radioButtonSubtraction);
             this.groupBoxAction.Controls.Add(this.radioButtonAddition);
-            this.groupBoxAction.Location = new System.Drawing.Point(687, 65);
+            this.groupBoxAction.Location = new System.Drawing.Point(882, 65);
             this.groupBoxAction.Name = "groupBoxAction";
-            this.groupBoxAction.Size = new System.Drawing.Size(282, 156);
+            this.groupBoxAction.Size = new System.Drawing.Size(401, 156);
             this.groupBoxAction.TabIndex = 15;
             this.groupBoxAction.TabStop = false;
             this.groupBoxAction.Text = "Действие";
@@ -221,7 +241,7 @@
             // radioButtonDeterminant
             // 
             this.radioButtonDeterminant.AutoSize = true;
-            this.radioButtonDeterminant.Location = new System.Drawing.Point(151, 128);
+            this.radioButtonDeterminant.Location = new System.Drawing.Point(263, 57);
             this.radioButtonDeterminant.Name = "radioButtonDeterminant";
             this.radioButtonDeterminant.Size = new System.Drawing.Size(98, 17);
             this.radioButtonDeterminant.TabIndex = 5;
@@ -233,19 +253,18 @@
             // radioButtonTransportation
             // 
             this.radioButtonTransportation.AutoSize = true;
-            this.radioButtonTransportation.Location = new System.Drawing.Point(16, 128);
+            this.radioButtonTransportation.Location = new System.Drawing.Point(263, 86);
             this.radioButtonTransportation.Name = "radioButtonTransportation";
             this.radioButtonTransportation.Size = new System.Drawing.Size(127, 17);
             this.radioButtonTransportation.TabIndex = 4;
             this.radioButtonTransportation.TabStop = true;
             this.radioButtonTransportation.Text = "Транспортирование";
             this.radioButtonTransportation.UseVisualStyleBackColor = true;
-            this.radioButtonTransportation.CheckedChanged += new System.EventHandler(this.radioButtonTransportation_CheckedChanged);
             // 
             // radioButtonDivision
             // 
             this.radioButtonDivision.AutoSize = true;
-            this.radioButtonDivision.Location = new System.Drawing.Point(151, 65);
+            this.radioButtonDivision.Location = new System.Drawing.Point(150, 86);
             this.radioButtonDivision.Name = "radioButtonDivision";
             this.radioButtonDivision.Size = new System.Drawing.Size(70, 17);
             this.radioButtonDivision.TabIndex = 3;
@@ -256,7 +275,7 @@
             // radioButtonMultiply
             // 
             this.radioButtonMultiply.AutoSize = true;
-            this.radioButtonMultiply.Location = new System.Drawing.Point(16, 65);
+            this.radioButtonMultiply.Location = new System.Drawing.Point(15, 86);
             this.radioButtonMultiply.Name = "radioButtonMultiply";
             this.radioButtonMultiply.Size = new System.Drawing.Size(85, 17);
             this.radioButtonMultiply.TabIndex = 2;
@@ -267,7 +286,7 @@
             // radioButtonSubtraction
             // 
             this.radioButtonSubtraction.AutoSize = true;
-            this.radioButtonSubtraction.Location = new System.Drawing.Point(151, 36);
+            this.radioButtonSubtraction.Location = new System.Drawing.Point(150, 57);
             this.radioButtonSubtraction.Name = "radioButtonSubtraction";
             this.radioButtonSubtraction.Size = new System.Drawing.Size(80, 17);
             this.radioButtonSubtraction.TabIndex = 1;
@@ -278,7 +297,7 @@
             // radioButtonAddition
             // 
             this.radioButtonAddition.AutoSize = true;
-            this.radioButtonAddition.Location = new System.Drawing.Point(16, 36);
+            this.radioButtonAddition.Location = new System.Drawing.Point(15, 57);
             this.radioButtonAddition.Name = "radioButtonAddition";
             this.radioButtonAddition.Size = new System.Drawing.Size(76, 17);
             this.radioButtonAddition.TabIndex = 0;
@@ -288,7 +307,8 @@
             // 
             // buttonResult
             // 
-            this.buttonResult.Location = new System.Drawing.Point(804, 485);
+            this.buttonResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonResult.Location = new System.Drawing.Point(1101, 592);
             this.buttonResult.Name = "buttonResult";
             this.buttonResult.Size = new System.Drawing.Size(165, 36);
             this.buttonResult.TabIndex = 16;
@@ -305,11 +325,16 @@
             this.labelValid.TabIndex = 17;
             this.labelValid.Text = "label1";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = " ";
+            this.Column1.Name = "Column1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 533);
+            this.ClientSize = new System.Drawing.Size(1295, 637);
             this.Controls.Add(this.labelValid);
             this.Controls.Add(this.buttonResult);
             this.Controls.Add(this.groupBoxAction);
@@ -318,10 +343,9 @@
             this.Controls.Add(this.dataGridViewResult);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
-            this.MaximumSize = new System.Drawing.Size(1014, 572);
-            this.MinimumSize = new System.Drawing.Size(1014, 572);
+            this.MinimumSize = new System.Drawing.Size(1311, 676);
             this.Name = "Form1";
-            this.Text = "Matrix Calculate";
+            this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).EndInit();
@@ -362,6 +386,7 @@
         private System.Windows.Forms.CheckBox checkBox2Random;
         private System.Windows.Forms.Button buttonResult;
         private System.Windows.Forms.Label labelValid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 

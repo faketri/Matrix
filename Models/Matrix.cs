@@ -42,7 +42,7 @@ namespace Main.Models
 
         public double[,] GetMatrix() => matrix;
 
-        public Matrix Transport() 
+        public Matrix Transport()
         {
             try
             {
@@ -55,54 +55,6 @@ namespace Main.Models
                 return new Matrix(TransponseMatrix);
             }
             catch { throw new ArgumentException("Неверный ввод данных в поле Строки и/или столбцы"); }
-        }
-
-        private int FindDeterminant(double[,] Matrix2, int size)
-        {
-            try
-            {
-                //останавливаем рекурсию, если матрица состоит из одного элемента
-                if (size == 1)
-                {
-                    return (int)Matrix2[0, 0];
-                }
-                else
-                {
-                    double det = 0;
-                    double[,] Minor = new double[size - 1, size - 1];
-                    for (int i = 0; i < size; i++)
-                    {
-                        GetMinor(Matrix2, Minor, 0, i, size);
-                        //рекурсия
-                        det += Math.Pow(-1, i) * Matrix2[0, i] * FindDeterminant(Minor, size - 1); //приведение в тип (int)
-                    }
-                    return (int)det;
-                }
-            }
-            catch { throw new ArgumentException("Возможно вы ввели недопустимый символ"); }
-        }
-        private int GetMinor(double[,] Matrix2, double[,] newArray, int x, int y, int size)
-        {
-            int xCount = 0;
-            int yCount = 0;
-
-            for (int i = 0; i < size; i++)
-            {
-                if (i != x)
-                {
-                    yCount = 0;
-                    for (int j = 0; j < size; j++)
-                    {
-                        if (j != y)
-                        {
-                            newArray[xCount, yCount] = Matrix2[i, j];
-                            yCount++;
-                        }
-                    }
-                    xCount++;
-                }
-            }
-            return 0;
         }
 
         public static Matrix operator +(Matrix Matrix, Matrix Matrix1) 

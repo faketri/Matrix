@@ -50,5 +50,13 @@ namespace Main.Extends
                 }
             }
         }
+
+        public static void Clear(this DataGridView dataGridView) {
+            if (dataGridView.RowCount > 0)
+            {
+                dataGridView.RowCount = 1;
+                dataGridView.ColumnCount = 1;
+            }
+        }
     }
 }

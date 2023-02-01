@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Main.Extends;
 using Main.Models;
@@ -10,7 +9,7 @@ namespace Main
     {
         public Form1()
         {
-            InitializeComponent(); ;
+            InitializeComponent();
 
             textBoxRows1.TextChanged += (sender, args) => SetRows(textBoxRows1, dataGridView1);
             textBoxRows2.TextChanged += (sender, args) => SetRows(textBoxRows2, dataGridView2);
@@ -47,7 +46,7 @@ namespace Main
                 }
                 if (radioButtonDivision.Checked == true)
                 {
-                    DivisionMatrix();
+                    // TODO DIVISION 
                 }
                 if (radioButtonMultiply.Checked == true)
                 {
@@ -73,64 +72,14 @@ namespace Main
                 }
                 if (radioButtonDeterminant.Checked == true)
                 {
-                    var resultDet = FindDeterminant(Matrix2, ColumsMatrix2);
-                    dataGridViewResult.RowCount = 1;
-                    dataGridViewResult.ColumnCount = 1;
-                    dataGridViewResult.Rows[0].Cells[0].Value = resultDet;
+                    dataGridViewResult.Clear();
+                    dataGridViewResult.Rows[0].Cells[0].Value = new Matrix(dataGridView1).FindDeterminant();
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        private int FindDeterminant(double[,] Matrix2, int size)
-        {
-            try { 
-                //останавливаем рекурсию, если матрица состоит из одного элемента
-                if (size == 1)
-                {
-                    return (int)Matrix2[0, 0];
-                }
-                else
-                {
-                    double det = 0;
-                    double[,] Minor = new double[size - 1, size - 1];
-                    for (int i = 0; i < size; i++)
-                    {
-                        GetMinor(Matrix2, Minor, 0, i, size);
-                        //рекурсия
-                        det += Math.Pow(-1, i) * Matrix2[0, i] * FindDeterminant(Minor, size - 1); //приведение в тип (int)
-                    }
-                    return (int)det;
-                }
-            } catch { 
-                MessageBox.Show("Возможно вы ввели недопустимый символ", "Error", MessageBoxButtons.OK);
-                return 0;
-            }
-        }
-        private int GetMinor(double[,] Matrix2, double[,] newArray, int x, int y, int size)
-        {
-            int xCount = 0;
-            int yCount = 0;
-            int i, j;
-            for (i = 0; i < size; i++)
-            {
-                if (i != x)
-                {
-                    yCount = 0;
-                    for (j = 0; j < size; j++)
-                    {
-                        if (j != y)
-                        {
-                            newArray[xCount, yCount] = Matrix2[i, j];
-                            yCount++;
-                        }
-                    }
-                    xCount++;
-                }
-            }
-            return 0;
-        }
-      
+      /*
         private void DivisionMatrix()
         {
             try { 
@@ -181,43 +130,19 @@ namespace Main
             }
             catch (Exception ex) { MessageBox.Show("Неверный ввод данных в поле Строки и/или столбцы", "Критическая ошибка!", MessageBoxButtons.OK); };
         }
-        private void FindAlgDop(double[,] Matrix2, int size, double[,] NewArray)
-        {
-            try
-            {
-                double det = FindDeterminant(Matrix2, size);
-                if (det > 0) // для знака алгебраического дополнения
-                    det = -1;
-                else
-                    det = 1;
-                double[,] minor = new double[size - 1, size - 1];
-
-                for (int j = 0; j < size; j++)
-                {
-                    for (int i = 0; i < size; i++)
-                    {
-                        // получаем алгебраическое дополнение
-                        GetMinor(Matrix2, minor, j, i, size);
-                        if ((i + j) % 2 == 0)
-                            NewArray[j, i] = -det * FindDeterminant(minor, size - 1);
-                        else
-                            NewArray[j, i] = det * FindDeterminant(minor, size - 1);
-                    }
-                }
-            }
-            catch (Exception e) { }
-        }
-
+      */
 
         private void radioButtonDeterminant_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonDeterminant.Checked == true)
             {
-                groupBoxMatrix1.Enabled = false;
+                groupBoxMatrix2.Enabled = false;
+                dataGridView2.Enabled = false;
             }
             else 
             { 
-                groupBoxMatrix1.Enabled = true;
+                groupBoxMatrix2.Enabled = true;
+                dataGridView2.Enabled = false;
             }
         }
     }
