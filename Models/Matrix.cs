@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Main.Extends;
+using System;
 
 namespace Main.Models
 {
@@ -17,11 +18,19 @@ namespace Main.Models
             set => matrix[i, j] = value;
         }
 
+        public Matrix(int rowCount,int columnCount)
+        {
+            this.matrix = new double[rowCount, columnCount];
+
+            ColumnCount = columnCount;
+            RowsCount = rowCount;
+        }
+
         public Matrix(double[,] matrix) { 
             this.matrix = matrix;
 
-            ColumnCount = matrix.GetLength(0);
-            RowsCount = matrix.GetLength(1);
+            RowsCount = matrix.GetLength(0);
+            ColumnCount = matrix.GetLength(1);
         }
 
         public Matrix(System.Windows.Forms.DataGridView datagrid)
@@ -125,7 +134,6 @@ namespace Main.Models
 
         }
 
-        public static Matrix operator /(Matrix matrix, Matrix matrix1)
-        { return new Matrix(new double[2, 2]); }
+        public static Matrix operator /(Matrix matrix, Matrix matrix1) => matrix * matrix1.Inverse(); 
     }
 }

@@ -31,6 +31,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewResult = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxColumn1 = new System.Windows.Forms.TextBox();
             this.textBoxRows1 = new System.Windows.Forms.TextBox();
             this.label1Column = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
             this.radioButtonAddition = new System.Windows.Forms.RadioButton();
             this.buttonResult = new System.Windows.Forms.Button();
             this.labelValid = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rbBackWard = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).BeginInit();
@@ -106,6 +107,11 @@
             this.dataGridViewResult.Name = "dataGridViewResult";
             this.dataGridViewResult.Size = new System.Drawing.Size(401, 334);
             this.dataGridViewResult.TabIndex = 2;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = " ";
+            this.Column1.Name = "Column1";
             // 
             // textBoxColumn1
             // 
@@ -225,6 +231,7 @@
             // 
             // groupBoxAction
             // 
+            this.groupBoxAction.Controls.Add(this.rbBackWard);
             this.groupBoxAction.Controls.Add(this.radioButtonDeterminant);
             this.groupBoxAction.Controls.Add(this.radioButtonTransportation);
             this.groupBoxAction.Controls.Add(this.radioButtonDivision);
@@ -325,10 +332,16 @@
             this.labelValid.TabIndex = 17;
             this.labelValid.Text = "label1";
             // 
-            // Column1
+            // rbBackWard
             // 
-            this.Column1.HeaderText = " ";
-            this.Column1.Name = "Column1";
+            this.rbBackWard.AutoSize = true;
+            this.rbBackWard.Location = new System.Drawing.Point(15, 114);
+            this.rbBackWard.Name = "rbBackWard";
+            this.rbBackWard.Size = new System.Drawing.Size(120, 17);
+            this.rbBackWard.TabIndex = 6;
+            this.rbBackWard.TabStop = true;
+            this.rbBackWard.Text = "Обратная матрица";
+            this.rbBackWard.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -387,6 +400,7 @@
         private System.Windows.Forms.Button buttonResult;
         private System.Windows.Forms.Label labelValid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.RadioButton rbBackWard;
     }
 }
 

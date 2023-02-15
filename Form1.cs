@@ -46,7 +46,9 @@ namespace Main
                 }
                 if (radioButtonDivision.Checked == true)
                 {
-                    // TODO DIVISION 
+                dataGridViewResult.MatrixConvert(
+                    (new Matrix(dataGridView1) / new Matrix(dataGridView2)).GetMatrix()
+                ) ;
                 }
                 if (radioButtonMultiply.Checked == true)
                 {
@@ -75,62 +77,13 @@ namespace Main
                     dataGridViewResult.Clear();
                     dataGridViewResult.Rows[0].Cells[0].Value = new Matrix(dataGridView1).FindDeterminant();
                 }
+                if (rbBackWard.Checked == true)
+                {
+                    dataGridViewResult.MatrixConvert(new Matrix(dataGridView1).Inverse().GetMatrix());
+                }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
-
-      /*
-        private void DivisionMatrix()
-        {
-            try { 
-                int i, j, k;
-                NewArray = new double[RowsMatrix2, ColumsMatrix2];
-                double[,] TempArray = new double[RowsMatrix2, ColumsMatrix2];
-
-                for (i = 0; i < RowsMatrix2; i++)
-                {
-                    for (j = 0; j < ColumsMatrix2; j++)
-                    {
-                        TempArray[i, j] = Matrix2[i, j];
-                    }
-                }
-
-                for (int x = 0; x < RowsMatrix1; x++)
-                {
-                    for (int y = 0; y < ColumsMatrix1; y++)
-                    {
-                        Matrix2[x, y] = TempArray[y, x];
-                    }
-                }
-
-                double[,] MartrixDivRes = new double[RowsMatrix1, ColumsMatrix1];
-                MatrixResult = new double[RowsMatrix1, ColumsMatrix1];
-                resultDet = FindDeterminant(Matrix2, ColumsMatrix2);
-                FindAlgDop(Matrix2, RowsMatrix2, NewArray);
-
-                for (i = 0; i < RowsMatrix1; i++)
-                {
-                    for (j = 0; j < ColumsMatrix1; j++)
-                    {
-                        MartrixDivRes[i, j] = (1 / -resultDet) * NewArray[i, j];
-                    }
-                }
-
-                for (i = 0; i < RowsMatrix1; i++)
-                {
-                    for (j = 0; j < ColumsMatrix1; j++)
-                    {
-                        for (k = 0; k < ColumsMatrix1; k++)
-                        {
-                            MatrixResult[i, j] += Matrix1[i, k] * MartrixDivRes[k, j];
-                        }
-                    }
-                }
-                ShowResultMatrix(MatrixResult);
-            }
-            catch (Exception ex) { MessageBox.Show("Неверный ввод данных в поле Строки и/или столбцы", "Критическая ошибка!", MessageBoxButtons.OK); };
-        }
-      */
 
         private void radioButtonDeterminant_CheckedChanged(object sender, EventArgs e)
         {

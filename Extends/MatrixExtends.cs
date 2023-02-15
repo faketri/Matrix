@@ -11,18 +11,16 @@ namespace Main.Extends
             {
                 //останавливаем рекурсию, если матрица состоит из одного элемента
                 if (Matrix.ColumnCount == 1)
-                {
                     return (int)Matrix[0, 0];
-                }
+
+
                 else
                 {
                     double det = 0;
 
                     for (int i = 0; i < Matrix.ColumnCount; i++)
-                    {
-                        //рекурсия
-                        det += Math.Pow(-1, i) * Matrix[0, i] * Matrix.GetMinor(0, i).FindDeterminant(); //приведение в тип (int)
-                    }
+                        det += Math.Pow(-1, i) * Matrix[0, i] * Matrix.GetMinor(0, i).FindDeterminant();
+         
                     return (int)det;
                 }
             }
@@ -30,38 +28,39 @@ namespace Main.Extends
         }
         private static Matrix GetMinor(this Matrix Matrix, int x, int y)
         {
-            int xCount = 0;
-            int yCount = 0;
-
-            Matrix Minor = new Matrix(
-                        new double[Matrix.ColumnCount - 1,
-                                   Matrix.ColumnCount - 1]
-            );
-
-            for (int i = 0; i < Matrix.ColumnCount; i++)
+            try
             {
-                if (i != x)
+                int xCount = 0;
+                int yCount = 0;
+
+                Matrix Minor = new Matrix(Matrix.RowsCount - 1,Matrix.ColumnCount - 1);
+
+                for (int i = 0; i < Matrix.ColumnCount; i++)
                 {
-                    yCount = 0;
-                    for (int j = 0; j < Matrix.ColumnCount; j++)
+                    if (i != x)
                     {
-                        if (j != y)
+                        yCount = 0;
+                        for (int j = 0; j < Matrix.ColumnCount; j++)
                         {
-                            Minor[xCount, yCount] = Matrix[i, j];
-                            yCount++;
+                            if (j != y)
+                            {
+                                Minor[xCount, yCount] = Matrix[i, j];
+                                yCount++;
+                            }
                         }
+                        xCount++;
                     }
-                    xCount++;
                 }
+                return Minor;
             }
-            return Minor;
+            catch (Exception e) { throw new ArgumentException(e.Message); }
         }
 
         private static Matrix FindAlgDop(this Matrix matrix)
         {
             try
             {
-                Matrix NewArray = new Matrix(new double[matrix.RowsCount, matrix.ColumnCount]);
+                Matrix NewArray = new Matrix(matrix.RowsCount, matrix.ColumnCount);
 
                 double det = matrix.FindDeterminant();
 
@@ -88,5 +87,30 @@ namespace Main.Extends
             catch (Exception e) { throw new Exception(e.Message); }
         }
 
+        public static Matrix Inverse(this Matrix matrix)
+        {
+            if (matrix.RowsCount != matrix.ColumnCount) 
+                throw new ArgumentException("Обратная матрица существует только для квадратных, невырожденных, матриц.");
+
+            Matrix newMat = matrix.Transport();
+            int resultDet = newMat.FindDeterminant();
+
+            if (resultDet == 0)
+                throw new ArgumentException("определитель матрицы равен НУЛЮ – обратной матрицы НЕ СУЩЕСТВУЕТ.");
+
+            newMat = newMat.FindAlgDop();
+
+            Matrix mat = new Matrix(newMat.RowsCount, newMat.ColumnCount);
+
+            for (int i = 0; i < newMat.RowsCount; i++)
+                for (int j = 0; j < newMat.ColumnCount; j++)
+                {
+                    double temp1 = (1.0 / -resultDet);
+                    var temp = newMat[i, j];
+                    mat[i, j] += temp1 * temp;
+                }
+
+            return mat;
+        }
     }
 }

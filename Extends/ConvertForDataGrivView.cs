@@ -56,6 +56,13 @@ namespace Main.Extends
             {
                 dataGridView.RowCount = 1;
                 dataGridView.ColumnCount = 1;
+
+                dataGridView.Rows[0].Cells[0].Value = null;
+            }
+            else
+            {
+                dataGridView.RowCount = 1;
+                dataGridView.ColumnCount = 1;
             }
         }
     }
