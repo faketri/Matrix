@@ -45,6 +45,7 @@
             this.groupBoxMatrix2 = new System.Windows.Forms.GroupBox();
             this.checkBox2Random = new System.Windows.Forms.CheckBox();
             this.groupBoxAction = new System.Windows.Forms.GroupBox();
+            this.rbBackWard = new System.Windows.Forms.RadioButton();
             this.radioButtonDeterminant = new System.Windows.Forms.RadioButton();
             this.radioButtonTransportation = new System.Windows.Forms.RadioButton();
             this.radioButtonDivision = new System.Windows.Forms.RadioButton();
@@ -52,8 +53,6 @@
             this.radioButtonSubtraction = new System.Windows.Forms.RadioButton();
             this.radioButtonAddition = new System.Windows.Forms.RadioButton();
             this.buttonResult = new System.Windows.Forms.Button();
-            this.labelValid = new System.Windows.Forms.Label();
-            this.rbBackWard = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).BeginInit();
@@ -71,9 +70,9 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 249);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 198);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(401, 334);
+            this.dataGridView1.Size = new System.Drawing.Size(401, 329);
             this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
@@ -86,9 +85,9 @@
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(454, 249);
+            this.dataGridView2.Location = new System.Drawing.Point(454, 198);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(401, 334);
+            this.dataGridView2.Size = new System.Drawing.Size(401, 329);
             this.dataGridView2.TabIndex = 1;
             // 
             // dataGridViewResult
@@ -96,16 +95,17 @@
             this.dataGridViewResult.AllowUserToAddRows = false;
             this.dataGridViewResult.AllowUserToDeleteRows = false;
             this.dataGridViewResult.AllowUserToResizeColumns = false;
-            this.dataGridViewResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridViewResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewResult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dataGridViewResult.Location = new System.Drawing.Point(882, 249);
+            this.dataGridViewResult.Location = new System.Drawing.Point(882, 198);
             this.dataGridViewResult.Name = "dataGridViewResult";
-            this.dataGridViewResult.Size = new System.Drawing.Size(401, 334);
+            this.dataGridViewResult.Size = new System.Drawing.Size(401, 329);
             this.dataGridViewResult.TabIndex = 2;
             // 
             // Column1
@@ -115,6 +115,7 @@
             // 
             // textBoxColumn1
             // 
+            this.textBoxColumn1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxColumn1.Location = new System.Drawing.Point(115, 19);
             this.textBoxColumn1.MaxLength = 2;
             this.textBoxColumn1.Name = "textBoxColumn1";
@@ -123,6 +124,7 @@
             // 
             // textBoxRows1
             // 
+            this.textBoxRows1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxRows1.Location = new System.Drawing.Point(115, 58);
             this.textBoxRows1.MaxLength = 2;
             this.textBoxRows1.Name = "textBoxRows1";
@@ -149,6 +151,8 @@
             // 
             // label2Rows
             // 
+            this.label2Rows.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2Rows.AutoSize = true;
             this.label2Rows.Location = new System.Drawing.Point(41, 65);
             this.label2Rows.Name = "label2Rows";
@@ -158,6 +162,8 @@
             // 
             // label2Column
             // 
+            this.label2Column.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2Column.AutoSize = true;
             this.label2Column.Location = new System.Drawing.Point(41, 26);
             this.label2Column.Name = "label2Column";
@@ -167,6 +173,8 @@
             // 
             // textBoxRows2
             // 
+            this.textBoxRows2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxRows2.Location = new System.Drawing.Point(120, 61);
             this.textBoxRows2.MaxLength = 2;
             this.textBoxRows2.Name = "textBoxRows2";
@@ -175,6 +183,8 @@
             // 
             // textBoxColumn2
             // 
+            this.textBoxColumn2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxColumn2.Location = new System.Drawing.Point(120, 23);
             this.textBoxColumn2.MaxLength = 2;
             this.textBoxColumn2.Name = "textBoxColumn2";
@@ -188,7 +198,7 @@
             this.groupBoxMatrix1.Controls.Add(this.textBoxColumn1);
             this.groupBoxMatrix1.Controls.Add(this.textBoxRows1);
             this.groupBoxMatrix1.Controls.Add(this.label1Rows);
-            this.groupBoxMatrix1.Location = new System.Drawing.Point(22, 65);
+            this.groupBoxMatrix1.Location = new System.Drawing.Point(22, 14);
             this.groupBoxMatrix1.Name = "groupBoxMatrix1";
             this.groupBoxMatrix1.Size = new System.Drawing.Size(402, 156);
             this.groupBoxMatrix1.TabIndex = 13;
@@ -198,7 +208,7 @@
             // checkBox1Random
             // 
             this.checkBox1Random.AutoSize = true;
-            this.checkBox1Random.Location = new System.Drawing.Point(40, 128);
+            this.checkBox1Random.Location = new System.Drawing.Point(29, 96);
             this.checkBox1Random.Name = "checkBox1Random";
             this.checkBox1Random.Size = new System.Drawing.Size(142, 17);
             this.checkBox1Random.TabIndex = 8;
@@ -212,7 +222,7 @@
             this.groupBoxMatrix2.Controls.Add(this.textBoxRows2);
             this.groupBoxMatrix2.Controls.Add(this.label2Rows);
             this.groupBoxMatrix2.Controls.Add(this.label2Column);
-            this.groupBoxMatrix2.Location = new System.Drawing.Point(454, 65);
+            this.groupBoxMatrix2.Location = new System.Drawing.Point(454, 14);
             this.groupBoxMatrix2.Name = "groupBoxMatrix2";
             this.groupBoxMatrix2.Size = new System.Drawing.Size(401, 156);
             this.groupBoxMatrix2.TabIndex = 14;
@@ -221,8 +231,10 @@
             // 
             // checkBox2Random
             // 
+            this.checkBox2Random.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2Random.AutoSize = true;
-            this.checkBox2Random.Location = new System.Drawing.Point(54, 128);
+            this.checkBox2Random.Location = new System.Drawing.Point(44, 96);
             this.checkBox2Random.Name = "checkBox2Random";
             this.checkBox2Random.Size = new System.Drawing.Size(142, 17);
             this.checkBox2Random.TabIndex = 9;
@@ -231,6 +243,7 @@
             // 
             // groupBoxAction
             // 
+            this.groupBoxAction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxAction.Controls.Add(this.rbBackWard);
             this.groupBoxAction.Controls.Add(this.radioButtonDeterminant);
             this.groupBoxAction.Controls.Add(this.radioButtonTransportation);
@@ -238,15 +251,28 @@
             this.groupBoxAction.Controls.Add(this.radioButtonMultiply);
             this.groupBoxAction.Controls.Add(this.radioButtonSubtraction);
             this.groupBoxAction.Controls.Add(this.radioButtonAddition);
-            this.groupBoxAction.Location = new System.Drawing.Point(882, 65);
+            this.groupBoxAction.Location = new System.Drawing.Point(882, 14);
             this.groupBoxAction.Name = "groupBoxAction";
             this.groupBoxAction.Size = new System.Drawing.Size(401, 156);
             this.groupBoxAction.TabIndex = 15;
             this.groupBoxAction.TabStop = false;
             this.groupBoxAction.Text = "Действие";
             // 
+            // rbBackWard
+            // 
+            this.rbBackWard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbBackWard.AutoSize = true;
+            this.rbBackWard.Location = new System.Drawing.Point(15, 114);
+            this.rbBackWard.Name = "rbBackWard";
+            this.rbBackWard.Size = new System.Drawing.Size(120, 17);
+            this.rbBackWard.TabIndex = 6;
+            this.rbBackWard.TabStop = true;
+            this.rbBackWard.Text = "Обратная матрица";
+            this.rbBackWard.UseVisualStyleBackColor = true;
+            // 
             // radioButtonDeterminant
             // 
+            this.radioButtonDeterminant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonDeterminant.AutoSize = true;
             this.radioButtonDeterminant.Location = new System.Drawing.Point(263, 57);
             this.radioButtonDeterminant.Name = "radioButtonDeterminant";
@@ -259,6 +285,7 @@
             // 
             // radioButtonTransportation
             // 
+            this.radioButtonTransportation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonTransportation.AutoSize = true;
             this.radioButtonTransportation.Location = new System.Drawing.Point(263, 86);
             this.radioButtonTransportation.Name = "radioButtonTransportation";
@@ -270,6 +297,7 @@
             // 
             // radioButtonDivision
             // 
+            this.radioButtonDivision.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonDivision.AutoSize = true;
             this.radioButtonDivision.Location = new System.Drawing.Point(150, 86);
             this.radioButtonDivision.Name = "radioButtonDivision";
@@ -281,6 +309,7 @@
             // 
             // radioButtonMultiply
             // 
+            this.radioButtonMultiply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonMultiply.AutoSize = true;
             this.radioButtonMultiply.Location = new System.Drawing.Point(15, 86);
             this.radioButtonMultiply.Name = "radioButtonMultiply";
@@ -292,6 +321,7 @@
             // 
             // radioButtonSubtraction
             // 
+            this.radioButtonSubtraction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonSubtraction.AutoSize = true;
             this.radioButtonSubtraction.Location = new System.Drawing.Point(150, 57);
             this.radioButtonSubtraction.Name = "radioButtonSubtraction";
@@ -303,6 +333,7 @@
             // 
             // radioButtonAddition
             // 
+            this.radioButtonAddition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonAddition.AutoSize = true;
             this.radioButtonAddition.Location = new System.Drawing.Point(15, 57);
             this.radioButtonAddition.Name = "radioButtonAddition";
@@ -315,7 +346,7 @@
             // buttonResult
             // 
             this.buttonResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonResult.Location = new System.Drawing.Point(1101, 592);
+            this.buttonResult.Location = new System.Drawing.Point(1118, 533);
             this.buttonResult.Name = "buttonResult";
             this.buttonResult.Size = new System.Drawing.Size(165, 36);
             this.buttonResult.TabIndex = 16;
@@ -323,32 +354,11 @@
             this.buttonResult.UseVisualStyleBackColor = true;
             this.buttonResult.Click += new System.EventHandler(this.buttonResult_Click);
             // 
-            // labelValid
-            // 
-            this.labelValid.AutoSize = true;
-            this.labelValid.Location = new System.Drawing.Point(22, 27);
-            this.labelValid.Name = "labelValid";
-            this.labelValid.Size = new System.Drawing.Size(35, 13);
-            this.labelValid.TabIndex = 17;
-            this.labelValid.Text = "label1";
-            // 
-            // rbBackWard
-            // 
-            this.rbBackWard.AutoSize = true;
-            this.rbBackWard.Location = new System.Drawing.Point(15, 114);
-            this.rbBackWard.Name = "rbBackWard";
-            this.rbBackWard.Size = new System.Drawing.Size(120, 17);
-            this.rbBackWard.TabIndex = 6;
-            this.rbBackWard.TabStop = true;
-            this.rbBackWard.Text = "Обратная матрица";
-            this.rbBackWard.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1295, 637);
-            this.Controls.Add(this.labelValid);
+            this.ClientSize = new System.Drawing.Size(1295, 581);
             this.Controls.Add(this.buttonResult);
             this.Controls.Add(this.groupBoxAction);
             this.Controls.Add(this.groupBoxMatrix2);
@@ -356,7 +366,7 @@
             this.Controls.Add(this.dataGridViewResult);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
-            this.MinimumSize = new System.Drawing.Size(1311, 676);
+            this.MinimumSize = new System.Drawing.Size(1311, 620);
             this.Name = "Form1";
             this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -369,7 +379,6 @@
             this.groupBoxAction.ResumeLayout(false);
             this.groupBoxAction.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -398,7 +407,6 @@
         private System.Windows.Forms.CheckBox checkBox1Random;
         private System.Windows.Forms.CheckBox checkBox2Random;
         private System.Windows.Forms.Button buttonResult;
-        private System.Windows.Forms.Label labelValid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.RadioButton rbBackWard;
     }

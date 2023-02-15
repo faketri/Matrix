@@ -104,11 +104,7 @@ namespace Main.Extends
 
             for (int i = 0; i < newMat.RowsCount; i++)
                 for (int j = 0; j < newMat.ColumnCount; j++)
-                {
-                    double temp1 = (1.0 / -resultDet);
-                    var temp = newMat[i, j];
-                    mat[i, j] += temp1 * temp;
-                }
+                    mat[i, j] += (1.0 / (double)resultDet) * newMat[i, j];
 
             return mat;
         }
