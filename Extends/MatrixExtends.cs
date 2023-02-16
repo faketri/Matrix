@@ -5,91 +5,89 @@ namespace Main.Extends
 {
     internal static class MatrixExtends
     {
-        public static int FindDeterminant(this Matrix Matrix)
-        {
-            try
-            {
-                //останавливаем рекурсию, если матрица состоит из одного элемента
-                if (Matrix.ColumnCount == 1)
-                    return (int)Matrix[0, 0];
 
+        /// <summary>
+        /// Finding the Determinant of a Matrix
+        /// </summary>
+        /// <param name="Matrix"></param>
+        /// <returns>Determinant</returns>
+        public static int FindDeterminant(this Matrix Matrix){
+            if (Matrix.ColumnCount == 1)
+                return (int)Matrix[0, 0];
 
-                else
-                {
-                    double det = 0;
+            double det = 0;
 
-                    for (int i = 0; i < Matrix.ColumnCount; i++)
-                        det += Math.Pow(-1, i) * Matrix[0, i] * Matrix.GetMinor(0, i).FindDeterminant();
+            for (int i = 0; i < Matrix.ColumnCount; i++)
+                det += Math.Pow(-1, i) * Matrix[0, i] * Matrix.GetMinor(0, i).FindDeterminant();
          
-                    return (int)det;
-                }
-            }
-            catch { throw new ArgumentException("Возможно вы ввели недопустимый символ"); }
+            return (int)det;
+
         }
-        private static Matrix GetMinor(this Matrix Matrix, int x, int y)
-        {
-            try
-            {
-                int xCount = 0;
-                int yCount = 0;
 
-                Matrix Minor = new Matrix(Matrix.RowsCount - 1,Matrix.ColumnCount - 1);
+        /// <summary>
+        /// A minor in linear algebra is the determinant of some smaller 
+        /// square matrix B cut out from a given matrix A by removing 
+        /// one or more of its rows and columns.
+        /// </summary>
+        /// <param name="Matrix"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        private static Matrix GetMinor(this Matrix Matrix, int x, int y){
+            int xCount = 0;
+            int yCount = 0;
 
-                for (int i = 0; i < Matrix.ColumnCount; i++)
+            Matrix Minor = new Matrix(Matrix.RowsCount - 1, Matrix.ColumnCount - 1);
+
+            for (int i = 0; i < Matrix.ColumnCount; i++)
+                if (i != x)
                 {
-                    if (i != x)
+                    yCount = 0;
+                    for (int j = 0; j < Matrix.ColumnCount; j++)
                     {
-                        yCount = 0;
-                        for (int j = 0; j < Matrix.ColumnCount; j++)
-                        {
-                            if (j != y)
-                            {
-                                Minor[xCount, yCount] = Matrix[i, j];
-                                yCount++;
-                            }
-                        }
-                        xCount++;
+                        if (j != y)
+                            Minor[xCount, yCount++] = Matrix[i, j];
                     }
+                    xCount++;
                 }
-                return Minor;
-            }
-            catch (Exception e) { throw new ArgumentException(e.Message); }
+
+            return Minor;
         }
 
-        private static Matrix FindAlgDop(this Matrix matrix)
-        {
-            try
-            {
-                Matrix NewArray = new Matrix(matrix.RowsCount, matrix.ColumnCount);
+        /// <summary>
+        /// The algebraic complement of the element a[i,j] defined by Determinant 
+        /// is called its minor, the application with the sign (-1)^(i+j)
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <returns></returns>
+        private static Matrix FindAlgDop(this Matrix matrix){
+            Matrix algDop = new Matrix(matrix.RowsCount, matrix.ColumnCount);
 
-                double det = matrix.FindDeterminant();
+            double det = matrix.FindDeterminant();
 
-                if (det > 0) // для знака алгебраического дополнения
-                    det = -1;
-                else
-                    det = 1;
+            if (det > 0)
+                det = -1;
+            else
+                det = 1;
 
-                for (int j = 0; j < matrix.RowsCount; j++)
-                {
-                    for (int i = 0; i < matrix.RowsCount; i++)
-                    {
-                        // получаем алгебраическое дополнение
-                        Matrix minor = matrix.GetMinor(j, i);
+            for (int j = 0; j < matrix.RowsCount; j++)
+                for (int i = 0; i < matrix.RowsCount; i++) { 
 
-                        if ((i + j) % 2 == 0)
-                            NewArray[j, i] = -det * minor.FindDeterminant();
-                        else
-                            NewArray[j, i] = det * minor.FindDeterminant();
-                    }
+                    Matrix minor = matrix.GetMinor(j, i);
+                    algDop[j, i] = (i + j) % 2 == 0 ? -det * minor.FindDeterminant() : det * minor.FindDeterminant();
                 }
-                return NewArray;
-            }
-            catch (Exception e) { throw new Exception(e.Message); }
+
+            return algDop;
         }
 
-        public static Matrix Inverse(this Matrix matrix)
-        {
-            if (matrix.RowsCount != matrix.ColumnCount) 
+        /// <summary>
+        /// Finding the inverse matrix for matrix. А^-1
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static Matrix Inverse(this Matrix matrix){
+            if (matrix.RowsCount != matrix.ColumnCount)
                 throw new ArgumentException("Обратная матрица существует только для квадратных, невырожденных, матриц.");
 
             Matrix newMat = matrix.Transport();
