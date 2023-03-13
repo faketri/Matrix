@@ -82,18 +82,10 @@ namespace Main
             });
         }
 
-        private void radioButtonDeterminant_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButtonDeterminant.Checked == true)
-            {
-                groupBoxMatrix2.Enabled = false;
-                dataGridView2.Enabled = false;
-            }
-            else 
-            { 
-                groupBoxMatrix2.Enabled = true;
-                dataGridView2.Enabled = false;
-            }
+        private void radioButtonDeterminant_CheckedChanged(object sender, EventArgs e){
+            
+            groupBoxMatrix2.Enabled = !radioButtonDeterminant.Checked;
+            dataGridView2.Enabled = !radioButtonDeterminant.Checked;
         }
     }
 }
