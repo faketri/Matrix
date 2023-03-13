@@ -45,37 +45,36 @@ namespace Main
                                 .GetMatrix()
                             );
 
-                    if (radioButtonDivision.Checked == true)
+                    else if (radioButtonDivision.Checked == true)
                         dataGridViewResult.MatrixConvert(
                             (new Matrix(dataGridView1) / new Matrix(dataGridView2))
                             .GetMatrix()
                         );
 
-                    if (radioButtonMultiply.Checked == true)
+                    else if (radioButtonMultiply.Checked == true)
                         dataGridViewResult.MatrixConvert(
                             (new Matrix(dataGridView1) * new Matrix(dataGridView2))
                                 .GetMatrix()
                             );
 
-                    if (radioButtonSubtraction.Checked == true)
+                    else if (radioButtonSubtraction.Checked == true)
                         dataGridViewResult.MatrixConvert(
                              (new Matrix(dataGridView1) - new Matrix(dataGridView2))
                                  .GetMatrix()
                              );
 
-                    if (radioButtonTransportation.Checked == true)
+                    else if (radioButtonTransportation.Checked == true)
                         dataGridViewResult.MatrixConvert(
                                 new Matrix(dataGridView1)
                                 .Transport()
                                 .GetMatrix()
                             );
 
-                    if (radioButtonDeterminant.Checked == true)
-                    {
+                    else if (radioButtonDeterminant.Checked == true){
                         dataGridViewResult.Clear();
                         dataGridViewResult.Rows[0].Cells[0].Value = new Matrix(dataGridView1).FindDeterminant();
                     }
-                    if (rbBackWard.Checked == true)
+                    else if (rbBackWard.Checked == true)
                         dataGridViewResult.MatrixConvert(new Matrix(dataGridView1).Inverse().GetMatrix());
                 }
                 catch (Exception ex) { MessageBox.Show("Неверный ввод данных в поле Строки и/или столбцы", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
